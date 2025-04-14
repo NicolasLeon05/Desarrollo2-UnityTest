@@ -659,7 +659,10 @@ MonoBehaviour:
   player: {fileID: 1919936307}
   rigidBody: {fileID: 1483123074}
   speed: 10
-  jumpForce: 10
+  jumpForce: 5
+  holdJumpForce: 5
+  maxJumpHoldTime: 0.2
+  maxJumps: 2
 --- !u!4 &918132038
 Transform:
   m_ObjectHideFlags: 0
