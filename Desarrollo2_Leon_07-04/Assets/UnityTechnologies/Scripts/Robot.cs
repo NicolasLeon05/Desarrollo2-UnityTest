@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -25,24 +26,25 @@ public class Robot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_constantForceRequest == null)
+        if (_constantForceRequest != null)
         {
-            return;
-        }
-        else
-        {
+            rigidBody.AddForce(_constantForceRequest.direction * _constantForceRequest.speed, ForceMode.Force);
 
+            if (rigidBody.linearVelocity.magnitude > _constantForceRequest.speed)
+            {
+
+                rigidBody.linearVelocity = rigidBody.linearVelocity.normalized * _constantForceRequest.speed;
+            }
+
+            Console.WriteLine(rigidBody.linearVelocity);
         }
 
-        if (_instantForceRequest == null)
-        {
-            return;
-        }
-        else
+        if (_instantForceRequest != null)
         {
             rigidBody.AddForce(_instantForceRequest.direction * _instantForceRequest.force, ForceMode.Impulse);
             _instantForceRequest = null;
         }
+
     }
 
 }

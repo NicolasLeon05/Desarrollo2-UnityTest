@@ -1135,6 +1135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerArmature
       objectReference: {fileID: 0}
+    - target: {fileID: 5615815007780928290, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 657185006897926158, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
     - {fileID: 4990764682642888921, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
@@ -1171,8 +1175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4416926083347132246}
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _speed: 1
-  _force: 1
+  _speed: 10
+  _force: 10
 --- !u!114 &4416926083347132246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,7 +1223,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992189857}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1124e5b5e3f087942b422ef9674f4aea, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -16,6 +16,7 @@ public class RobotController : MonoBehaviour
             return;
 
         moveAction.action.performed += OnMove;
+        moveAction.action.canceled += OnMove;
     }
 
     private void OnMove(InputAction.CallbackContext ctx)
@@ -27,6 +28,6 @@ public class RobotController : MonoBehaviour
         request.speed = _speed;
         request.force = _force;
 
-        player.RequestInstantForce(request);
+        player.RequestConstantForce(request);
     }
 }
