@@ -26,25 +26,29 @@ public class Robot : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Move
         if (_constantForceRequest != null)
         {
             rigidBody.AddForce(_constantForceRequest.direction * _constantForceRequest.speed, ForceMode.Force);
 
             if (rigidBody.linearVelocity.magnitude > _constantForceRequest.speed)
             {
-
                 rigidBody.linearVelocity = rigidBody.linearVelocity.normalized * _constantForceRequest.speed;
             }
-
-            Console.WriteLine(rigidBody.linearVelocity);
         }
 
+        //Jump
         if (_instantForceRequest != null)
         {
-            rigidBody.AddForce(_instantForceRequest.direction * _instantForceRequest.force, ForceMode.Impulse);
-            _instantForceRequest = null;
+            if (rigidBody.linearVelocity.y == 0)
+            {
+                rigidBody.AddForce(_instantForceRequest.direction * _instantForceRequest.force, ForceMode.Impulse);
+                _instantForceRequest = null;
+                //Debug.Log("jump");
+            }
         }
 
+        Debug.Log(rigidBody.linearVelocity);
     }
 
 }
